@@ -10,8 +10,8 @@
 #include "Robot.hpp"
 
 MyAutoCommand::MyAutoCommand() {
-	// Use Requires() here to declare subsystem dependencies
-	Requires(&Robot::subsystem);
+    // Use Requires() here to declare subsystem dependencies
+    Requires(&Robot::subsystem);
 }
 
 // Called just before this Command runs the first time
@@ -21,9 +21,7 @@ void MyAutoCommand::Initialize() {}
 void MyAutoCommand::Execute() {}
 
 // Make this return true when this Command no longer needs to run execute()
-bool MyAutoCommand::IsFinished() { 
-	return false; 
-}
+bool MyAutoCommand::IsFinished() { return false; }
 
 // Called once after isFinished returns true
 void MyAutoCommand::End() {}

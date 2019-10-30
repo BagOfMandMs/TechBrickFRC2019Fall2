@@ -8,22 +8,24 @@
 #include "commands/Commands.hpp"
 
 #include "Robot.hpp"
+#include "frc/WPILib.h"
+#include "frc/SmartDashboard.h"
 
 ExampleCommand::ExampleCommand() {
-	// Use Requires() here to declare subsystem dependencies
-	Requires(&Robot::subsystem);
+    // Use Requires() here to declare subsystem dependencies
+    Requires(&Robot::subsystem);
 }
 
 // Called just before this Command runs the first time
 void ExampleCommand::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void ExampleCommand::Execute() {}
+void ExampleCommand::Execute() {
+    SmartDashBoard::PutString("Hello");
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool ExampleCommand::IsFinished() { 
-	return false; 
-}
+bool ExampleCommand::IsFinished() { return false; }
 
 // Called once after isFinished returns true
 void ExampleCommand::End() {}

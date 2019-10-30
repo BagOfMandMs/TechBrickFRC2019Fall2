@@ -12,31 +12,30 @@
 #include <frc/smartdashboard/SendableChooser.h>
 
 #include "OI.hpp"
-#include "commands/Commands.hpp"
 #include "commands/AutoCommands.hpp"
+#include "commands/Commands.hpp"
 #include "subsystems/Subsystems.hpp"
 
-class Robot : public frc::TimedRobot
-{
-public:
-  static ExampleSubsystem subsystem;
-  static OI oi;
+class Robot : public frc::TimedRobot {
+   public:
+    static ExampleSubsystem subsystem;
+    static OI oi;
 
-  void RobotInit() override;
-  void RobotPeriodic() override;
-  void DisabledInit() override;
-  void DisabledPeriodic() override;
-  void AutonomousInit() override;
-  void AutonomousPeriodic() override;
-  void TeleopInit() override;
-  void TeleopPeriodic() override;
-  void TestPeriodic() override;
+    void RobotInit() override;
+    void RobotPeriodic() override;
+    void DisabledInit() override;
+    void DisabledPeriodic() override;
+    void AutonomousInit() override;
+    void AutonomousPeriodic() override;
+    void TeleopInit() override;
+    void TeleopPeriodic() override;
+    void TestPeriodic() override;
 
-private:
-  // Have it null by default so that if testing teleop it
-  // doesn't have undefined behavior and potentially crash.
-  frc::Command *autonomousCommand = nullptr;
-  ExampleCommand defaultAuto;
-  MyAutoCommand myAuto;
-  frc::SendableChooser<frc::Command *> chooser;
+   private:
+    // Have it null by default so that if testing teleop it
+    // doesn't have undefined behavior and potentially crash.
+    frc::Command *autonomousCommand = nullptr;
+    ExampleCommand defaultAuto;
+    MyAutoCommand myAuto;
+    frc::SendableChooser<frc::Command *> chooser;
 };

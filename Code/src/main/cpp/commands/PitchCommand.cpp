@@ -21,9 +21,7 @@ void PitchCommand::Initialize() {}
 void PitchCommand::Execute() {}
 
 // Make this return true when this Command no longer needs to run execute()
-bool PitchCommand::IsFinished() { 
-	return false; 
-}
+bool PitchCommand::IsFinished() { return false; }
 
 // Called once after isFinished returns true
 void PitchCommand::End() {}

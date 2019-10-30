@@ -7,9 +7,10 @@
 
 #pragma once
 
-class OI{
-	Joystick driveStick;
+#include "frc/Joystick.h"
+#include "frc/WPILib.h"
 
-	public:
-		OI();
+class OI {
+    public:
+        OI();
 };

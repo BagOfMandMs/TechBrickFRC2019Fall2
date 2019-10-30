@@ -13,11 +13,10 @@
 ExampleSubsystem Robot::subsystem;
 OI Robot::oi;
 
-void Robot::RobotInit()
-{
-  chooser.SetDefaultOption("Default Auto", &defaultAuto);
-  chooser.AddOption("My Auto", &myAuto);
-  frc::SmartDashboard::PutData("Auto Modes", &chooser);
+void Robot::RobotInit() {
+    chooser.SetDefaultOption("Default Auto", &defaultAuto);
+    chooser.AddOption("My Auto", &myAuto);
+    frc::SmartDashboard::PutData("Auto Modes", &chooser);
 }
 
 /**
@@ -50,37 +49,33 @@ void Robot::DisabledPeriodic() { frc::Scheduler::GetInstance()->Run(); }
  * chooser code above (like the commented example) or additional comparisons to
  * the if-else structure below with additional strings & commands.
  */
-void Robot::AutonomousInit()
-{
-  // std::string autoSelected = frc::SmartDashboard::GetString(
-  //     "Auto Selector", "Default");
-  // if (autoSelected == "My Auto") {
-  //   autonomousCommand = &myAuto;
-  // } else {
-  //   autonomousCommand = &defaultAuto;
-  // }
+void Robot::AutonomousInit() {
+    // std::string autoSelected = frc::SmartDashboard::GetString(
+    //     "Auto Selector", "Default");
+    // if (autoSelected == "My Auto") {
+    //   autonomousCommand = &myAuto;
+    // } else {
+    //   autonomousCommand = &defaultAuto;
+    // }
 
-  autonomousCommand = chooser.GetSelected();
+    autonomousCommand = chooser.GetSelected();
 
-  if (autonomousCommand != nullptr)
-  {
-    autonomousCommand->Start();
-  }
+    if (autonomousCommand != nullptr) {
+        autonomousCommand->Start();
+    }
 }
 
 void Robot::AutonomousPeriodic() { frc::Scheduler::GetInstance()->Run(); }
 
-void Robot::TeleopInit()
-{
-  // This makes sure that the autonomous stops running when
-  // teleop starts running. If you want the autonomous to
-  // continue until interrupted by another command, remove
-  // this line or comment it out.
-  if (autonomousCommand != nullptr)
-  {
-    autonomousCommand->Cancel();
-    autonomousCommand = nullptr;
-  }
+void Robot::TeleopInit() {
+    // This makes sure that the autonomous stops running when
+    // teleop starts running. If you want the autonomous to
+    // continue until interrupted by another command, remove
+    // this line or comment it out.
+    if (autonomousCommand != nullptr) {
+        autonomousCommand->Cancel();
+        autonomousCommand = nullptr;
+    }
 }
 
 void Robot::TeleopPeriodic() { frc::Scheduler::GetInstance()->Run(); }
@@ -88,8 +83,5 @@ void Robot::TeleopPeriodic() { frc::Scheduler::GetInstance()->Run(); }
 void Robot::TestPeriodic() {}
 
 #ifndef RUNNING_FRC_TESTS
-int main()
-{
-  return frc::StartRobot<Robot>();
-}
+int main() { return frc::StartRobot<Robot>(); }
 #endif

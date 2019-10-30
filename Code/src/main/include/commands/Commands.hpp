@@ -9,24 +9,22 @@
 
 #include <frc/commands/Command.h>
 
-class ExampleCommand : public frc::Command
-{
-public:
-  ExampleCommand();
-  void Initialize() override;
-  void Execute() override;
-  bool IsFinished() override;
-  void End() override;
-  void Interrupted() override;
+class ExampleCommand : public frc::Command {
+   public:
+    ExampleCommand();
+    void Initialize() override;
+    void Execute() override;
+    bool IsFinished() override;
+    void End() override;
+    void Interrupted() override;
 };
 
-class PitchCommand : public frc::Command
-{
-public:
-  PitchCommand();
-  void Initialize() override;
-  void Execute() override;
-  bool IsFinished() override;
-  void End() override;
-  void Interrupted() override;
+class PitchCommand : public frc::Command {
+   public:
+    PitchCommand();
+    void Initialize() override;
+    void Execute() override;
+    bool IsFinished() override;
+    void End() override;
+    void Interrupted() override;
 };

@@ -9,24 +9,27 @@
 
 #include <frc/commands/Subsystem.h>
 
-class ExampleSubsystem : public frc::Subsystem
-{
-  public:
-	ExampleSubsystem();
-	void InitDefaultCommand() override;
+#include "RobotMap.hpp"
+#include "ctre/Phoenix.h"
+#include "frc/WPILib.h"
 
-  private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
+class ExampleSubsystem : public frc::Subsystem {
+   public:
+    ExampleSubsystem();
+    void InitDefaultCommand() override;
+
+   private:
+    // It's desirable that everything possible under private except
+    // for methods that implement subsystem capabilities
 };
 
-class TalonSubsystem : public frc::Subsystem
-{
-  public:
-	TalonSubsystem();
-	void InitDefaultCommand() override;
+class TalonSubsystem : public frc::Subsystem {
+   public:
+    TalonSubsystem();
+    void InitDefaultCommand() override;
+    TalonSRX pitchMotor;
 
-  private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
+   private:
+    // It's desirable that everything possible under private except
+    // for methods that implement subsystem capabilities
 };
