@@ -6,28 +6,37 @@
 /*----------------------------------------------------------------------------*/
 
 #include "commands/Commands.hpp"
+#include "ctre/Phoenix.h"
+#include <frc/smartdashboard/SmartDashboard.h>
 
 #include "Robot.hpp"
 #include "frc/WPILib.h"
 
-ExampleCommand::ExampleCommand() {
+DefaultDriveCommand::DefaultDriveCommand() {
     // Use Requires() here to declare subsystem dependencies
-    Requires(&Robot::subsystem);
+    Requires(&Robot::Drive);
 }
 
 // Called just before this Command runs the first time
-void ExampleCommand::Initialize() {}
+void DefaultDriveCommand::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void ExampleCommand::Execute() {
+void DefaultDriveCommand::Execute() {
+    frc::SmartDashboard::PutNumber("AxSis Y", Robot::oi.DriveStick->GetRawAxis(DRIVEAXISY));
+    double joyY = Robot::oi.DriveStick->GetRawAxis(DRIVEAXISY);
+    double joyX = Robot::oi.DriveStick->GetRawAxis(DRIVEAXISX);
+    double rightDrive = (joyX / joyY);
+    double leftDrive = (joyY / joyX);
+    Robot::Drive.RightController.Set(motorcontrol::ControlMode::PercentOutput, rightDrive);
+    Robot::Drive.LeftController.Set(motorcontrol::ControlMode::PercentOutput, leftDrive);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ExampleCommand::IsFinished() { return false; }
+bool DefaultDriveCommand::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void ExampleCommand::End() {}
+void DefaultDriveCommand::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ExampleCommand::Interrupted() {}
+void DefaultDriveCommand::Interrupted() {}

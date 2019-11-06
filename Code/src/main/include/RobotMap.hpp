@@ -20,6 +20,14 @@
 // constexpr int kRightMotor = 2;
 
 constexpr int PITCHMOTORID = 02;
+constexpr int LEFTMOTORPRIMARYID = 12;
+constexpr int LEFTMOTORSECONDARYID = 13;
+constexpr int RIGHTMOTORPRIMARYID = 14;
+constexpr int RIGHTMOTORSECONDARYID = 15;
+
+constexpr int DRIVEAXISX = 0;
+constexpr int DRIVEAXISY = 1;
+constexpr int DRIVEAXISZ = 2;
 
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:

@@ -13,4 +13,5 @@
 class OI {
     public:
         OI();
+        frc::Joystick* DriveStick;
 };

@@ -19,6 +19,7 @@
 class Robot : public frc::TimedRobot {
    public:
     static ExampleSubsystem subsystem;
+    static DriveSubsystem Drive;
     static OI oi;
 
     void RobotInit() override;

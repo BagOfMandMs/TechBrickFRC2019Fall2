@@ -23,11 +23,15 @@ class ExampleSubsystem : public frc::Subsystem {
     // for methods that implement subsystem capabilities
 };
 
-class TalonSubsystem : public frc::Subsystem {
+class DriveSubsystem : public frc::Subsystem {
    public:
-    TalonSubsystem();
+    DriveSubsystem();
     void InitDefaultCommand() override;
-    TalonSRX pitchMotor;
+    TalonSRX PitchMotor;
+    TalonSRX RightController;
+    TalonSRX RightFollower;
+    TalonSRX LeftController;
+    TalonSRX LeftFollower;
 
    private:
     // It's desirable that everything possible under private except

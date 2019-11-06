@@ -28,3 +28,13 @@ class PitchCommand : public frc::Command {
     void End() override;
     void Interrupted() override;
 };
+
+class DefaultDriveCommand : public frc::Command {
+   public:
+    DefaultDriveCommand();
+    void Initialize() override;
+    void Execute() override;
+    bool IsFinished() override;
+    void End() override;
+    void Interrupted() override;
+};
