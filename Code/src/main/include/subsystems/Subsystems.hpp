@@ -14,26 +14,38 @@
 #include "frc/WPILib.h"
 
 class ExampleSubsystem : public frc::Subsystem {
-   public:
-    ExampleSubsystem();
-    void InitDefaultCommand() override;
+    public:
+        ExampleSubsystem();
+        void InitDefaultCommand() override;
 
-   private:
+    private:
     // It's desirable that everything possible under private except
     // for methods that implement subsystem capabilities
 };
 
 class DriveSubsystem : public frc::Subsystem {
-   public:
-    DriveSubsystem();
-    void InitDefaultCommand() override;
-    TalonSRX PitchMotor;
-    TalonSRX RightController;
-    TalonSRX RightFollower;
-    TalonSRX LeftController;
-    TalonSRX LeftFollower;
+    public:
+        DriveSubsystem();
+        void InitDefaultCommand() override;
+        TalonSRX PitchMotor;
+        TalonSRX RightController;
+        TalonSRX RightFollower;
+        TalonSRX LeftController;
+        TalonSRX LeftFollower;
 
-   private:
+    private:
+    // It's desirable that everything possible under private except
+    // for methods that implement subsystem capabilities
+};
+
+class ShooterSubsystem : public frc::Subsystem {
+    public:
+        ShooterSubsystem();
+        void InitDefaultCommand() override;
+        frc::DigitalOutput data0;
+        frc::DigitalOutput data1;
+        
+    private:
     // It's desirable that everything possible under private except
     // for methods that implement subsystem capabilities
 };

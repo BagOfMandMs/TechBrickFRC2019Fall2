@@ -38,3 +38,13 @@ class DefaultDriveCommand : public frc::Command {
     void End() override;
     void Interrupted() override;
 };
+
+class DefaultShooterCommand : public frc::Command {
+   public:
+    DefaultShooterCommand();
+    void Initialize() override;
+    void Execute() override;
+    bool IsFinished() override;
+    void End() override;
+    void Interrupted() override;
+};
