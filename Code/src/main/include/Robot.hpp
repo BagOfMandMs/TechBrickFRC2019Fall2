@@ -18,7 +18,6 @@
 
 class Robot : public frc::TimedRobot {
    public:
-    static ExampleSubsystem subsystem;
     static DriveSubsystem Drive;
     static ShooterSubsystem Shooter;
     static OI oi;
@@ -37,7 +36,6 @@ class Robot : public frc::TimedRobot {
     // Have it null by default so that if testing teleop it
     // doesn't have undefined behavior and potentially crash.
     frc::Command *autonomousCommand = nullptr;
-    ExampleCommand defaultAuto;
     MyAutoCommand myAuto;
     frc::SendableChooser<frc::Command *> chooser;
 };

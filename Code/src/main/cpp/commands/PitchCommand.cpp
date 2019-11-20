@@ -11,7 +11,7 @@
 
 PitchCommand::PitchCommand() {
     // Use Requires() here to declare subsystem dependencies
-    Requires(&Robot::subsystem);
+    //Requires(&Robot::);
 }
 
 // Called just before this Command runs the first time

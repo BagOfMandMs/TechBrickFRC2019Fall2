@@ -16,6 +16,9 @@ DriveSubsystem::DriveSubsystem()
         RightFollower.SetInverted(false);
         RightFollower.SetNeutralMode(Brake);
         RightFollower.Follow(RightController);
+
+        table = NetworkTable::GetTable("limelight");
+        
     }
 
 void DriveSubsystem::InitDefaultCommand() {

@@ -10,13 +10,12 @@
 #include <frc/commands/Scheduler.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 
-ExampleSubsystem Robot::subsystem;
 OI Robot::oi;
 DriveSubsystem Robot::Drive;
 ShooterSubsystem Robot::Shooter;
 
 void Robot::RobotInit() {
-    chooser.SetDefaultOption("Default Auto", &defaultAuto);
+    //chooser.SetDefaultOption("Default Auto", &defaultAuto);
     chooser.AddOption("My Auto", &myAuto);
     frc::SmartDashboard::PutData("Auto Modes", &chooser);
 }

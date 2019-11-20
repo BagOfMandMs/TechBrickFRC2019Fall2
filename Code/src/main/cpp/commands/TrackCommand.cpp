@@ -10,24 +10,32 @@
 #include "Robot.hpp"
 #include "frc/WPILib.h"
 
-ExampleCommand::ExampleCommand() {
+TrackCommand::TrackCommand() {
     // Use Requires() here to declare subsystem dependencies
-    Requires(&Robot::subsystem);
+    Requires(&Robot::Drive);
 }
 
 // Called just before this Command runs the first time
-void ExampleCommand::Initialize() {}
+void TrackCommand::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void ExampleCommand::Execute() {
+void TrackCommand::Execute() {
+    
+    float kp = -0.1f;
+    float tx = Robot::Drive.table->GetNumber("tx", 0);
+    tx *= kp;
+    if(tx > 1 || tx < -1){
+        Robot::Drive.RightController.Set(motorcontrol::ControlMode::PercentOutput, tx);
+        Robot::Drive.LeftController.Set(motorcontrol::ControlMode::PercentOutput, tx);
+    }
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ExampleCommand::IsFinished() { return false; }
+bool TrackCommand::IsFinished() { return false; }
 
 // Called once after isFinished returns true
-void ExampleCommand::End() {}
+void TrackCommand::End() {}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ExampleCommand::Interrupted() {}
+void TrackCommand::Interrupted() {}

@@ -9,16 +9,6 @@
 
 #include <frc/commands/Command.h>
 
-class ExampleCommand : public frc::Command {
-   public:
-    ExampleCommand();
-    void Initialize() override;
-    void Execute() override;
-    bool IsFinished() override;
-    void End() override;
-    void Interrupted() override;
-};
-
 class PitchCommand : public frc::Command {
    public:
     PitchCommand();
@@ -42,6 +32,16 @@ class DefaultDriveCommand : public frc::Command {
 class DefaultShooterCommand : public frc::Command {
    public:
     DefaultShooterCommand();
+    void Initialize() override;
+    void Execute() override;
+    bool IsFinished() override;
+    void End() override;
+    void Interrupted() override;
+};
+
+class TrackCommand : public frc::Command {
+   public:
+    TrackCommand();
     void Initialize() override;
     void Execute() override;
     bool IsFinished() override;

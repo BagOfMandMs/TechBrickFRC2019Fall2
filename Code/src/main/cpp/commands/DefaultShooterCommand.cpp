@@ -20,8 +20,8 @@ void DefaultShooterCommand::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void DefaultShooterCommand::Execute() {
-    Robot::Shooter.data0.Set(true);
-    Robot::Shooter.data1.Set(true);
+    Robot::Shooter.data0.Set(false);
+    Robot::Shooter.data1.Set(false);
 }
 
 // Make this return true when this Command no longer needs to run execute()
