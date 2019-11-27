@@ -32,8 +32,8 @@ class ShooterSubsystem : public frc::Subsystem {
     public:
         ShooterSubsystem();
         void InitDefaultCommand() override;
-        frc::DigitalOutput data0;
-        frc::DigitalOutput data1;
+        frc::Relay armPin;
+        frc::Relay firePin;
         
     private:
     // It's desirable that everything possible under private except

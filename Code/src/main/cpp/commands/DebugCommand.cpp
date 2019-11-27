@@ -10,26 +10,29 @@
 #include "Robot.hpp"
 #include "frc/WPILib.h"
 
-DefaultShooterCommand::DefaultShooterCommand() {
+DebugCommand::DebugCommand() {
     // Use Requires() here to declare subsystem dependencies
-    Requires(&Robot::Shooter);
+    Requires(&Robot::Drive);
 }
 
 // Called just before this Command runs the first time
-void DefaultShooterCommand::Initialize() {}
+void DebugCommand::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void DefaultShooterCommand::Execute() {
-    //Robot::Shooter.data0.Set(false);
-    //Robot::Shooter.data1.Set(false);
+void DebugCommand::Execute() {
+    Robot::Shooter.armPin.Set(frc::Relay::kOn);
+    Robot::Shooter.firePin.Set(frc::Relay::kOff);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool DefaultShooterCommand::IsFinished() { return false; }
+bool DebugCommand::IsFinished() { return !Robot::oi.DriveStick->GetRawButton(DEBUGBUTTON); }
 
 // Called once after isFinished returns true
-void DefaultShooterCommand::End() {}
+void DebugCommand::End() {
+    Robot::Shooter.armPin.Set(frc::Relay::kOff);
+    Robot::Shooter.firePin.Set(frc::Relay::kOff);
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void DefaultShooterCommand::Interrupted() {}
+void DebugCommand::Interrupted() {}

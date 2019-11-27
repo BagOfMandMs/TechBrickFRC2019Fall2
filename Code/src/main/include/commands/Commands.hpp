@@ -48,3 +48,13 @@ class TrackCommand : public frc::Command {
     void End() override;
     void Interrupted() override;
 };
+
+class DebugCommand : public frc::Command {
+   public:
+    DebugCommand();
+    void Initialize() override;
+    void Execute() override;
+    bool IsFinished() override;
+    void End() override;
+    void Interrupted() override;
+};

@@ -11,8 +11,8 @@
 #include "RobotMap.hpp"
 
 ShooterSubsystem::ShooterSubsystem() : frc::Subsystem("ShooterSubsystem"),
-data0(DATA0),
-data1(DATA1)
+armPin(ARM, frc::Relay::kForwardOnly),
+firePin(FIRE, frc::Relay::kForwardOnly)
 {}
 
 void ShooterSubsystem::InitDefaultCommand() {

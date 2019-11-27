@@ -21,20 +21,37 @@ void TrackCommand::Initialize() {}
 // Called repeatedly when this Command is scheduled to run
 void TrackCommand::Execute() {
     
-    float kp = -0.1f;
+    float kp = 1.0f / 20.0f;
+    float thresh = 2.5f * kp;
     float tx = Robot::Drive.table->GetNumber("tx", 0);
     tx *= kp;
-    if(tx > 1 || tx < -1){
+    if(tx > thresh || tx < -thresh){
+        Robot::Shooter.armPin.Set(frc::Relay::kOff);
+        Robot::Shooter.firePin.Set(frc::Relay::kOff);
         Robot::Drive.RightController.Set(motorcontrol::ControlMode::PercentOutput, tx);
         Robot::Drive.LeftController.Set(motorcontrol::ControlMode::PercentOutput, tx);
+    }else{
+        if(tx != 0.0){
+            Robot::Shooter.armPin.Set(frc::Relay::kOn);
+            if(Robot::oi.DriveStick->GetRawButton(FIREBUTTON)){
+                Robot::Shooter.firePin.Set(frc::Relay::kOn);
+            }else{
+                Robot::Shooter.firePin.Set(frc::Relay::kOff);
+            }
+        }
+        Robot::Drive.RightController.Set(motorcontrol::ControlMode::PercentOutput, 0);
+        Robot::Drive.LeftController.Set(motorcontrol::ControlMode::PercentOutput, 0);
     }
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool TrackCommand::IsFinished() { return false; }
+bool TrackCommand::IsFinished() { return !Robot::oi.DriveStick->GetRawButton(TRACKBUTTON); }
 
 // Called once after isFinished returns true
-void TrackCommand::End() {}
+void TrackCommand::End() {
+    Robot::Shooter.armPin.Set(frc::Relay::kOff);
+    Robot::Shooter.firePin.Set(frc::Relay::kOff);
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run

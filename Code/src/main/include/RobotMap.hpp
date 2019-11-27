@@ -19,8 +19,8 @@
 // constexpr int kLeftMotor = 1;
 // constexpr int kRightMotor = 2;
 
-constexpr int DATA0 = 0;
-constexpr int DATA1 = 1;
+constexpr int ARM = 0;
+constexpr int FIRE = 1;
 
 constexpr int PITCHMOTORID = 02;
 constexpr int LEFTMOTORPRIMARYID = 12;
@@ -33,6 +33,10 @@ constexpr int DRIVEAXISY = 1;
 constexpr int DRIVEAXISZ = 2;
 
 constexpr double TURNINGDEADBAND = .05;
+
+constexpr int FIREBUTTON = 1;
+constexpr int TRACKBUTTON = 2;
+constexpr int DEBUGBUTTON = 11;
 
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:
