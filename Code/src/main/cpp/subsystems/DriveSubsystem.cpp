@@ -3,9 +3,7 @@
 #include "ctre/Phoenix.h"
 
 DriveSubsystem::DriveSubsystem()
-    : frc::Subsystem("DriveSubsystem"), PitchMotor(PITCHMOTORID), LeftController(LEFTMOTORPRIMARYID), LeftFollower(LEFTMOTORSECONDARYID), RightController(RIGHTMOTORPRIMARYID), RightFollower(RIGHTMOTORSECONDARYID) {
-        PitchMotor.SetInverted(false);
-        PitchMotor.SetNeutralMode(Brake);
+    : frc::Subsystem("DriveSubsystem"), LeftController(LEFTMOTORPRIMARYID), LeftFollower(LEFTMOTORSECONDARYID), RightController(RIGHTMOTORPRIMARYID), RightFollower(RIGHTMOTORSECONDARYID) {
         LeftController.SetInverted(false);
         LeftController.SetNeutralMode(Brake);
         LeftFollower.SetInverted(false);

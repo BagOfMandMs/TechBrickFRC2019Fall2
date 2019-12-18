@@ -15,6 +15,7 @@ OI::OI() {
     // Process operator interface input here.
 	DriveStick = new frc::Joystick(0);
 	frc::JoystickButton* trackButton = new frc::JoystickButton(DriveStick, TRACKBUTTON);
+	frc::JoystickButton* armButton = new frc::JoystickButton(DriveStick, ARMBUTTOM);
 	frc::JoystickButton* debugButton = new frc::JoystickButton(DriveStick, DEBUGBUTTON);
 	/*frc::JoystickButton* button3 = new frc::JoystickButton(DriveStick, 3);
 	frc::JoystickButton* button4 = new frc::JoystickButton(DriveStick, 4);
@@ -23,5 +24,6 @@ OI::OI() {
 	frc::JoystickButton* button7 = new frc::JoystickButton(DriveStick, 7);
 	frc::JoystickButton* button8 = new frc::JoystickButton(DriveStick, 8);*/
 	trackButton->WhenPressed(new TrackCommand());
+	armButton->WhenPressed(new ArmCommand());
 	debugButton->WhenPressed(new DebugCommand());
 }

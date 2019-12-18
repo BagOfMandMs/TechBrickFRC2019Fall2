@@ -11,9 +11,16 @@
 #include "RobotMap.hpp"
 
 ShooterSubsystem::ShooterSubsystem() : frc::Subsystem("ShooterSubsystem"),
-armPin(ARM, frc::Relay::kForwardOnly),
-firePin(FIRE, frc::Relay::kForwardOnly)
-{}
+ShooterController(LEFTSHOOTERID),
+ShooterFollower(RIGHTSHOOTERID),
+FeedMotor(FEEDMOTOR)
+{
+    ShooterController.SetNeutralMode(Brake);
+    ShooterController.SetInverted(false);
+    ShooterFollower.SetNeutralMode(Brake);
+    ShooterController.SetInverted(true);
+    ShooterFollower.Follow(ShooterController);
+}
 
 void ShooterSubsystem::InitDefaultCommand() {
     // Set the default command for a subsystem here.

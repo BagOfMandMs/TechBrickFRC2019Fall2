@@ -22,6 +22,7 @@ void DefaultShooterCommand::Initialize() {}
 void DefaultShooterCommand::Execute() {
     //Robot::Shooter.data0.Set(false);
     //Robot::Shooter.data1.Set(false);
+    Robot::Shooter.ShooterController.Set(motorcontrol::ControlMode::PercentOutput, 0);
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -8,24 +8,35 @@
 #include "commands/Commands.hpp"
 
 #include "Robot.hpp"
+#include "frc/WPILib.h"
 
-PitchCommand::PitchCommand() {
+ArmCommand::ArmCommand() {
     // Use Requires() here to declare subsystem dependencies
-    //Requires(&Robot::);
+    Requires(&Robot::Shooter);
 }
 
 // Called just before this Command runs the first time
-void PitchCommand::Initialize() {}
+void ArmCommand::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
-void PitchCommand::Execute() {}
+void ArmCommand::Execute() {
+     Robot::Shooter.ShooterController.Set(motorcontrol::ControlMode::PercentOutput, -1);
+     if(Robot::oi.DriveStick->GetRawButton(FIREBUTTON)){
+         Robot::Shooter.FeedMotor.Set(motorcontrol::ControlMode::PercentOutput, 1);
+     }else{
+         Robot::Shooter.FeedMotor.Set(motorcontrol::ControlMode::PercentOutput, 0);
+     }
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool PitchCommand::IsFinished() { return false; }
+bool ArmCommand::IsFinished() { return !Robot::oi.DriveStick->GetRawButton(ARMBUTTOM); }
 
 // Called once after isFinished returns true
-void PitchCommand::End() {}
+void ArmCommand::End() {
+    Robot::Shooter.ShooterController.Set(motorcontrol::ControlMode::PercentOutput, 0);
+    Robot::Shooter.FeedMotor.Set(motorcontrol::ControlMode::PercentOutput, 0);
+}
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void PitchCommand::Interrupted() {}
+void ArmCommand::Interrupted() {}

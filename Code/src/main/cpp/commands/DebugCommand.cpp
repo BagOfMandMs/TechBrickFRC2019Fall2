@@ -20,8 +20,7 @@ void DebugCommand::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void DebugCommand::Execute() {
-    Robot::Shooter.armPin.Set(frc::Relay::kOn);
-    Robot::Shooter.firePin.Set(frc::Relay::kOff);
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -29,8 +28,7 @@ bool DebugCommand::IsFinished() { return !Robot::oi.DriveStick->GetRawButton(DEB
 
 // Called once after isFinished returns true
 void DebugCommand::End() {
-    Robot::Shooter.armPin.Set(frc::Relay::kOff);
-    Robot::Shooter.firePin.Set(frc::Relay::kOff);
+    
 }
 
 // Called when another command which requires one or more of the same

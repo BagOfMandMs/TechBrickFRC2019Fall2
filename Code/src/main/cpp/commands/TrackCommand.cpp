@@ -26,19 +26,9 @@ void TrackCommand::Execute() {
     float tx = Robot::Drive.table->GetNumber("tx", 0);
     tx *= kp;
     if(tx > thresh || tx < -thresh){
-        Robot::Shooter.armPin.Set(frc::Relay::kOff);
-        Robot::Shooter.firePin.Set(frc::Relay::kOff);
         Robot::Drive.RightController.Set(motorcontrol::ControlMode::PercentOutput, tx);
         Robot::Drive.LeftController.Set(motorcontrol::ControlMode::PercentOutput, tx);
     }else{
-        if(tx != 0.0){
-            Robot::Shooter.armPin.Set(frc::Relay::kOn);
-            if(Robot::oi.DriveStick->GetRawButton(FIREBUTTON)){
-                Robot::Shooter.firePin.Set(frc::Relay::kOn);
-            }else{
-                Robot::Shooter.firePin.Set(frc::Relay::kOff);
-            }
-        }
         Robot::Drive.RightController.Set(motorcontrol::ControlMode::PercentOutput, 0);
         Robot::Drive.LeftController.Set(motorcontrol::ControlMode::PercentOutput, 0);
     }
@@ -49,8 +39,7 @@ bool TrackCommand::IsFinished() { return !Robot::oi.DriveStick->GetRawButton(TRA
 
 // Called once after isFinished returns true
 void TrackCommand::End() {
-    Robot::Shooter.armPin.Set(frc::Relay::kOff);
-    Robot::Shooter.firePin.Set(frc::Relay::kOff);
+    
 }
 
 // Called when another command which requires one or more of the same

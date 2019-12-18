@@ -17,7 +17,6 @@ class DriveSubsystem : public frc::Subsystem {
     public:
         DriveSubsystem();
         void InitDefaultCommand() override;
-        TalonSRX PitchMotor;
         TalonSRX RightController;
         TalonSRX RightFollower;
         TalonSRX LeftController;
@@ -32,9 +31,9 @@ class ShooterSubsystem : public frc::Subsystem {
     public:
         ShooterSubsystem();
         void InitDefaultCommand() override;
-        frc::Relay armPin;
-        frc::Relay firePin;
-        
+        TalonSRX ShooterController;
+        TalonSRX ShooterFollower;
+        TalonSRX FeedMotor;
     private:
     // It's desirable that everything possible under private except
     // for methods that implement subsystem capabilities
