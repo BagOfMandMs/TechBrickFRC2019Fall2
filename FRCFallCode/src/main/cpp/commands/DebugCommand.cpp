@@ -20,7 +20,7 @@ void DebugCommand::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void DebugCommand::Execute() {
-
+    frc::SmartDashboard::PutBoolean("toggle", !frc::SmartDashboard::GetBoolean("toggle", false));
 }
 
 // Make this return true when this Command no longer needs to run execute()

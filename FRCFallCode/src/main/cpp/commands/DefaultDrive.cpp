@@ -23,11 +23,11 @@ void DefaultDriveCommand::Initialize() {}
 // Called repeatedly when this Command is scheduled to run
 void DefaultDriveCommand::Execute() {
 
-    frc::SmartDashboard::PutNumber("AxSis Y", Robot::oi.DriveStick->GetRawAxis(DRIVEAXISY));
+    frc::SmartDashboard::PutNumber("Axis Y", Robot::oi.DriveStick->GetRawAxis(DRIVEAXISY));
     double joyY = Robot::oi.DriveStick->GetRawAxis(DRIVEAXISY);
     double joyZ = Robot::oi.DriveStick->GetRawAxis(DRIVEAXISZ);
-    joyY = 0;
-    joyZ = 0;
+    //joyY = 0;
+    //joyZ = 0;
     if(abs(joyZ) <= TURNINGDEADBAND){
         Robot::Drive.RightController.Set(motorcontrol::ControlMode::PercentOutput, joyY);
         Robot::Drive.LeftController.Set(motorcontrol::ControlMode::PercentOutput, -joyY);

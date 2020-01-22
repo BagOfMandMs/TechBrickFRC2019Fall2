@@ -7,11 +7,14 @@
 
 #pragma once
 
+#include "frc/WPILib.h"
+
 #include <frc/commands/Subsystem.h>
 
 #include "RobotMap.hpp"
 #include "ctre/Phoenix.h"
-#include "frc/WPILib.h"
+
+#include <PIDController.h>
 
 class DriveSubsystem : public frc::Subsystem {
     public:
@@ -21,6 +24,7 @@ class DriveSubsystem : public frc::Subsystem {
         TalonSRX RightFollower;
         TalonSRX LeftController;
         TalonSRX LeftFollower;
+        frc2::PIDController test;
         std::shared_ptr<NetworkTable> table;
     private:
     // It's desirable that everything possible under private except

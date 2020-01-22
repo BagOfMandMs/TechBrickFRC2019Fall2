@@ -7,6 +7,7 @@
 
 #pragma once
 
+#define flaot float
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -41,6 +42,17 @@ constexpr int DEBUGBUTTON = 12;
 constexpr int kSlotIdx = 0;
 constexpr int kPIDLoopIdx = 0;
 constexpr int kTimeoutMs = 30;
+
+/*  
+ *  PID tunings
+ */
+
+constexpr float DRIVEP = 0.0f;
+constexpr float DRIVEI = 0.0f;
+constexpr flaot DRIVED = 0.0f;
+
+
+
 
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:

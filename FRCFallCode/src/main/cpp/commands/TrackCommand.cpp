@@ -21,17 +21,17 @@ void TrackCommand::Initialize() {}
 // Called repeatedly when this Command is scheduled to run
 void TrackCommand::Execute() {
     
-    float kp = 1.0f / 20.0f;
-    float thresh = 2.5f * kp;
+    float kp = frc::SmartDashboard::GetNumber("Drive-P", DRIVEP);
+    //float thresh = 2.5f * kp;
     float tx = Robot::Drive.table->GetNumber("tx", 0);
     tx *= kp;
-    if(tx > thresh || tx < -thresh){
+    //if(tx > thresh || tx < -thresh){
         Robot::Drive.RightController.Set(motorcontrol::ControlMode::PercentOutput, tx);
         Robot::Drive.LeftController.Set(motorcontrol::ControlMode::PercentOutput, tx);
-    }else{
-        Robot::Drive.RightController.Set(motorcontrol::ControlMode::PercentOutput, 0);
-        Robot::Drive.LeftController.Set(motorcontrol::ControlMode::PercentOutput, 0);
-    }
+    //}else{
+        //Robot::Drive.RightController.Set(motorcontrol::ControlMode::PercentOutput, 0);
+        //Robot::Drive.LeftController.Set(motorcontrol::ControlMode::PercentOutput, 0);
+    //}
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -39,7 +39,8 @@ bool TrackCommand::IsFinished() { return !Robot::oi.DriveStick->GetRawButton(TRA
 
 // Called once after isFinished returns true
 void TrackCommand::End() {
-    
+    Robot::Drive.RightController.Set(motorcontrol::ControlMode::PercentOutput, 0);
+    Robot::Drive.LeftController.Set(motorcontrol::ControlMode::PercentOutput, 0);
 }
 
 // Called when another command which requires one or more of the same

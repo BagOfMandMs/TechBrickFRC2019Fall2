@@ -26,4 +26,8 @@ OI::OI() {
 	trackButton->WhenPressed(new TrackCommand());
 	armButton->WhenPressed(new ArmCommand());
 	debugButton->WhenPressed(new DebugCommand());
+	frc::SmartDashboard::PutData(new DebugCommand());
+	frc::SmartDashboard::PutNumber("Drive-P", DRIVEP);
+	frc::SmartDashboard::PutNumber("Drive-I", DRIVEI);
+	frc::SmartDashboard::PutNumber("Drive-D", DRIVED);
 }
