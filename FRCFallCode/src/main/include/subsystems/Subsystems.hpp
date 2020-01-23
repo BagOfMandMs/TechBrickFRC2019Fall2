@@ -14,7 +14,7 @@
 #include "RobotMap.hpp"
 #include "ctre/Phoenix.h"
 
-#include <PIDController.h>
+#include <frc/controller/PIDController.h>
 
 class DriveSubsystem : public frc::Subsystem {
     public:
@@ -24,8 +24,9 @@ class DriveSubsystem : public frc::Subsystem {
         TalonSRX RightFollower;
         TalonSRX LeftController;
         TalonSRX LeftFollower;
-        frc2::PIDController test;
         std::shared_ptr<NetworkTable> table;
+        float lastValue = 0;
+        float integral = 0;
     private:
     // It's desirable that everything possible under private except
     // for methods that implement subsystem capabilities

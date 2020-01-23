@@ -21,17 +21,16 @@ void TrackCommand::Initialize() {}
 // Called repeatedly when this Command is scheduled to run
 void TrackCommand::Execute() {
     
-    float kp = frc::SmartDashboard::GetNumber("Drive-P", DRIVEP);
-    //float thresh = 2.5f * kp;
-    float tx = Robot::Drive.table->GetNumber("tx", 0);
-    tx *= kp;
-    //if(tx > thresh || tx < -thresh){
-        Robot::Drive.RightController.Set(motorcontrol::ControlMode::PercentOutput, tx);
-        Robot::Drive.LeftController.Set(motorcontrol::ControlMode::PercentOutput, tx);
-    //}else{
-        //Robot::Drive.RightController.Set(motorcontrol::ControlMode::PercentOutput, 0);
-        //Robot::Drive.LeftController.Set(motorcontrol::ControlMode::PercentOutput, 0);
-    //}
+    float p = frc::SmartDashboard::GetNumber("Drive-P", DRIVEP);
+    float i = frc::SmartDashboard::GetNumber("Drive-I", DRIVEI);
+    float d = frc::SmartDashboard::GetNumber("Drive-D", DRIVED);
+    float tp = Robot::Drive.table->GetNumber("tx", 0);
+    Robot::Drive.integral = (DRIVEIDECAY * tp) + ((1.0f - DRIVEIDECAY) * tp);
+    float td = tp - Robot::Drive.lastValue;
+    Robot::Drive.lastValue = tp;
+    float power = tp * p + i * Robot::Drive.integral + d * td;
+    Robot::Drive.RightController.Set(motorcontrol::ControlMode::PercentOutput, power);
+    Robot::Drive.LeftController.Set(motorcontrol::ControlMode::PercentOutput, power);
 }
 
 // Make this return true when this Command no longer needs to run execute()

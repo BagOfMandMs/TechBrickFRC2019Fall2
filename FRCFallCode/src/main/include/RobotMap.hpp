@@ -47,10 +47,10 @@ constexpr int kTimeoutMs = 30;
  *  PID tunings
  */
 
-constexpr float DRIVEP = 0.0f;
-constexpr float DRIVEI = 0.0f;
-constexpr flaot DRIVED = 0.0f;
-
+constexpr float DRIVEP = 0.018309f;
+constexpr float DRIVEI = 0.02f;
+constexpr flaot DRIVED = -0.015613f;
+constexpr float DRIVEIDECAY = 0.8f;
 
 
 
