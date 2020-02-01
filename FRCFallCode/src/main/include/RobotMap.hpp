@@ -20,9 +20,14 @@
 // constexpr int kLeftMotor = 1;
 // constexpr int kRightMotor = 2;
 
-constexpr int LEFTSHOOTERID = 01;
-constexpr int RIGHTSHOOTERID = 02;
-constexpr int FEEDMOTOR = 05;
+constexpr int LEFTCLIMBID = 01;
+constexpr int RIGHTCLIMBID = 02;
+constexpr int LIFTMOTOR = 05;
+
+constexpr int LEFTSHOOTERID = -01;
+constexpr int RIGHTSHOOTERID = -02;
+constexpr int FEEDMOTOR = -05;
+
 constexpr int LEFTMOTORPRIMARYID = 12;
 constexpr int LEFTMOTORSECONDARYID = 13;
 constexpr int RIGHTMOTORPRIMARYID = 14;
@@ -38,6 +43,10 @@ constexpr int FIREBUTTON = 1;
 constexpr int TRACKBUTTON = 11;
 constexpr int ARMBUTTOM = 2;
 constexpr int DEBUGBUTTON = 12;
+constexpr int LIFTUPBUTTON = 5;
+constexpr int LIFTDOWNBUTTON = 3;
+constexpr int CLIMBUPBUTTON = 6;
+constexpr int CLIMBDOWNBUTTON = 4;
 
 constexpr int kSlotIdx = 0;
 constexpr int kPIDLoopIdx = 0;

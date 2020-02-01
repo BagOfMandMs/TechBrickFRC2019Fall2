@@ -6,7 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
-
+#include <frc/smartdashboard/SmartDashboard.h>
 #include <frc/commands/Command.h>
 
 class DefaultDriveCommand : public frc::Command {
@@ -22,6 +22,16 @@ class DefaultDriveCommand : public frc::Command {
 class DefaultShooterCommand : public frc::Command {
    public:
     DefaultShooterCommand();
+    void Initialize() override;
+    void Execute() override;
+    bool IsFinished() override;
+    void End() override;
+    void Interrupted() override;
+};
+
+class DefaultClimbCommand : public frc::Command {
+   public:
+    DefaultClimbCommand();
     void Initialize() override;
     void Execute() override;
     bool IsFinished() override;
@@ -52,6 +62,24 @@ class DebugCommand : public frc::Command {
 class ArmCommand : public frc::Command {
    public:
     ArmCommand();
+    void Initialize() override;
+    void Execute() override;
+    bool IsFinished() override;
+    void End() override;
+    void Interrupted() override;
+};
+class ClimbCommand : public frc::Command {
+   public:
+    ClimbCommand();
+    void Initialize() override;
+    void Execute() override;
+    bool IsFinished() override;
+    void End() override;
+    void Interrupted() override;
+};
+class LiftCommand : public frc::Command {
+   public:
+    LiftCommand();
     void Initialize() override;
     void Execute() override;
     bool IsFinished() override;

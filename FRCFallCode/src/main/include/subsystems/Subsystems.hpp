@@ -7,9 +7,8 @@
 
 #pragma once
 
-#include "frc/WPILib.h"
-
 #include <frc/commands/Subsystem.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 
 #include "RobotMap.hpp"
 #include "ctre/Phoenix.h"
@@ -39,6 +38,19 @@ class ShooterSubsystem : public frc::Subsystem {
         TalonSRX ShooterController;
         TalonSRX ShooterFollower;
         TalonSRX FeedMotor;
+    private:
+    // It's desirable that everything possible under private except
+    // for methods that implement subsystem capabilities
+};
+
+class ClimbSubsystem : public frc::Subsystem {
+    public:
+        ClimbSubsystem();
+        void InitDefaultCommand() override;
+        TalonSRX climbController;
+        TalonSRX climbFollower;
+        TalonSRX liftMotor;
+        float runningCurrent;
     private:
     // It's desirable that everything possible under private except
     // for methods that implement subsystem capabilities

@@ -20,6 +20,7 @@ class Robot : public frc::TimedRobot {
    public:
     static DriveSubsystem Drive;
     static ShooterSubsystem Shooter;
+    static ClimbSubsystem Climb;
     static OI oi;
 
     void RobotInit() override;

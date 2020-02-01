@@ -8,7 +8,6 @@
 #include "commands/Commands.hpp"
 
 #include "Robot.hpp"
-#include "frc/WPILib.h"
 
 ArmCommand::ArmCommand() {
     // Use Requires() here to declare subsystem dependencies

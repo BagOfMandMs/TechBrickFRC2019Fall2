@@ -8,7 +8,6 @@
 #include "commands/Commands.hpp"
 
 #include "Robot.hpp"
-#include "frc/WPILib.h"
 
 DebugCommand::DebugCommand() {
     // Use Requires() here to declare subsystem dependencies

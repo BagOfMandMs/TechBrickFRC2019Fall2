@@ -13,6 +13,7 @@
 OI Robot::oi;
 DriveSubsystem Robot::Drive;
 ShooterSubsystem Robot::Shooter;
+ClimbSubsystem Robot::Climb;
 
 void Robot::RobotInit() {
     //chooser.SetDefaultOption("Default Auto", &defaultAuto);
